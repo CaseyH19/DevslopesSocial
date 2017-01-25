@@ -13,8 +13,8 @@ import Firebase
 
 class SignInVC: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailTxt: UITextField!
-    @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var emailTxt: FancyField!
+    @IBOutlet weak var passwordTxt: FancyField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,28 @@ class SignInVC: UIViewController, UITextFieldDelegate {
             }
         })
     }
+    
+    //signing in with email/account
+    @IBAction func signInPressed(_ sender: Any) {
+        
+        if let email = emailTxt.text, let pass = passwordTxt.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: { (user, error) in
+                if error == nil {
+                    print("KC: Email user Authenticated with Firebase, Existing Account")
+                } else {
+                    FIRAuth.auth()?.createUser(withEmail: email, password: pass, completion: { (user, error) in
+                        if error != nil {
+                            print("KC: Unable to authenicate with firebase using email")
+                        } else {
+                            print("KC: User created EMail")
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
+    
     
     
 }
