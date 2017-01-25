@@ -72,6 +72,9 @@
                                     <constraint firstAttribute="width" constant="130" id="tO7-H4-vlI"/>
                                 </constraints>
                                 <state key="normal" image="f"/>
+                                <connections>
+                                    <action selector="fBookBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gH7-LP-gCg"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dny-kY-Zmv">
                                 <rect key="frame" x="36" y="350" width="303" height="141"/>
