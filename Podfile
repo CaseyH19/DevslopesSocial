@@ -12,5 +12,5 @@ target 'DevslopesSocial' do
   pod 'Firebase/Storage'
   pod 'IQKeyboardManagerSwift'
   pod 'FBSDKLoginKit'
-  
+  pod 'SwiftKeychainWrapper'
 end
