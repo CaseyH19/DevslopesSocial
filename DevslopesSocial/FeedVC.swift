@@ -12,6 +12,9 @@ import Firebase
 
 class FeedVC: UIViewController {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,14 +22,18 @@ class FeedVC: UIViewController {
     }
 
     
-    //signs out of the app and removes the keychain 
+    //signs out of the app and removes the keychain
     @IBAction func signOutPressed(_ sender: Any) {
-        let keychainResult = KeychainWrapper.standard.remove(key: KEY_UID)
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KC: ID removed: \(keychainResult)")
         try! FIRAuth.auth()?.signOut()
         performSegue(withIdentifier: "backLogin", sender: nil)
         
     }
+    
+    
+    
+    
     
 
 }
