@@ -68,7 +68,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
             } else {
                 print("KC: Authenticated with Firebase")
                 if let user = user {
-                    self.completeSignIn(id: user.uid)
+                    let userData = ["provider": cred.provider]
+                    
+                    self.completeSignIn(id: user.uid, userData: userData)
                 }
                
             }
@@ -83,7 +85,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("KC: Email user Authenticated with Firebase, Existing Account")
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
                     }
                     
                 } else {
@@ -119,7 +122,8 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                                     
                                             print("KC: User created EMail")
                                             if let user = user {
-                                                self.completeSignIn(id: user.uid)
+                                                let userData = ["provider": user.providerID]
+                                                self.completeSignIn(id: user.uid, userData: userData)
                                             }
                                             
                                         }
@@ -174,7 +178,9 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     
     
     //completes signIn feature and segues to next part of the app
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("KC: Did save to keychain - \(keychainResult)")
         performSegue(withIdentifier: "gotoFeed", sender: nil)

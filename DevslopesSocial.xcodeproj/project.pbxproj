@@ -17,6 +17,7 @@
 		F12E9CC71E39C0F400C71A7D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12E9CC61E39C0F400C71A7D /* FeedVC.swift */; };
 		F14ED3B51E3FCAAC00756311 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ED3B41E3FCAAC00756311 /* CircleView.swift */; };
 		F14ED3B71E3FD77900756311 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ED3B61E3FD77900756311 /* PostCell.swift */; };
+		F14ED3BA1E3FEB9400756311 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14ED3B91E3FEB9400756311 /* DataService.swift */; };
 		F1B7AA1B1E371BAD0000AFD1 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7AA1A1E371BAD0000AFD1 /* FancyView.swift */; };
 		F1B7AA1E1E371C500000AFD1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7AA1D1E371C500000AFD1 /* Constants.swift */; };
 		F1B7AA201E371DF80000AFD1 /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7AA1F1E371DF80000AFD1 /* RoundBtn.swift */; };
@@ -39,6 +40,7 @@
 		F12E9CC61E39C0F400C71A7D /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		F14ED3B41E3FCAAC00756311 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		F14ED3B61E3FD77900756311 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		F14ED3B91E3FEB9400756311 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F1B7AA1A1E371BAD0000AFD1 /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		F1B7AA1D1E371C500000AFD1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1B7AA1F1E371DF80000AFD1 /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		F12D3F571E36AFCF0011A1E4 /* DevslopesSocial */ = {
 			isa = PBXGroup;
 			children = (
+				F14ED3B81E3FEB7600756311 /* Services */,
 				F1B7AA1C1E371C3E0000AFD1 /* Utilities */,
 				F19C3D151E36B3DA00A4E134 /* Controller */,
 				F19C3D141E36B3D600A4E134 /* View */,
@@ -108,6 +111,14 @@
 				F12D3F6A1E36B0930011A1E4 /* GoogleService-Info.plist */,
 			);
 			path = DevslopesSocial;
+			sourceTree = "<group>";
+		};
+		F14ED3B81E3FEB7600756311 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F14ED3B91E3FEB9400756311 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		F19C3D131E36B3D000A4E134 /* Model */ = {
@@ -276,6 +287,7 @@
 				F12D3F5B1E36AFCF0011A1E4 /* SignInVC.swift in Sources */,
 				F1B7AA201E371DF80000AFD1 /* RoundBtn.swift in Sources */,
 				F12D3F591E36AFCF0011A1E4 /* AppDelegate.swift in Sources */,
+				F14ED3BA1E3FEB9400756311 /* DataService.swift in Sources */,
 				F12E9CC71E39C0F400C71A7D /* FeedVC.swift in Sources */,
 				F1B7AA1B1E371BAD0000AFD1 /* FancyView.swift in Sources */,
 				F1B7AA1E1E371C500000AFD1 /* Constants.swift in Sources */,

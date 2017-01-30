@@ -37,6 +37,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     //signs out of the app and removes the keychain
+    //remember with tap gestures on images to enable user interaction
     @IBAction func signOutPress(_ sender: AnyObject) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KC: ID removed: \(keychainResult)")
