@@ -14,6 +14,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
     
+    var posts = [Post]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +25,26 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             //looks for any changes in database and instantly updates
-            print(snapshot.value)
+            //print(snapshot.value)
+            
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                //resets the posts array so duplicates are not made everytime the app is updated/opened
+                self.posts = []
+                
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+                    
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        self.posts.append(post)
+                        
+                    }
+                }
+            }
+            
+            self.tableview.reloadData()
+            
         })
     }
 
@@ -30,11 +52,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    //number of total cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+        print("KC: \(post.caption)")
+        
+        
         return tableview.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
     
