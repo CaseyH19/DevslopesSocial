@@ -10,18 +10,24 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableview: UITableView!
+    var imagePicker: UIImagePickerController!
     
     var posts = [Post]()
     
+    @IBOutlet weak var addImg: CircleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableview.delegate = self
         tableview.dataSource = self
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             //looks for any changes in database and instantly updates
@@ -71,7 +77,15 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     }
     
-    
+    //after image is selected the imagepicker is dismissed
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            addImg.image = image
+        } else {
+            print("KC: No image was selected")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
     
     
     //signs out of the app and removes the keychain
@@ -84,6 +98,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    
+    @IBAction func addImgPressed(_ sender: AnyObject) {
+        print("KC: Getting Image")
+        present(imagePicker, animated: true, completion: nil)
+        
+        
+    }
     
     
     
