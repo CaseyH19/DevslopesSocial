@@ -40,9 +40,8 @@ class DataService {
         //updateChildValues only adds to the child's "array"
         REF_USERS.child(uid).updateChildValues(userData)
         
-        
-        
     }
+    
     
     
     
