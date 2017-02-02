@@ -19,7 +19,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var like: UIImageView!
     
     var post: Post!
-    let likeREF = DataService.ds.REF_USER_CURRENT.child("likes")
+    var likeRef: FIRDatabaseReference!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +37,8 @@ class PostCell: UITableViewCell {
     //= nil gives default value of nil
     func configureCell(post: Post, img: UIImage? = nil) {
         self.post = post
+        likeRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
+        
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes)"
         
@@ -62,7 +65,7 @@ class PostCell: UITableViewCell {
         }
         
         
-        likeREF.observeSingleEvent(of: .value, with: { (snapshot) in
+        likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             //if null
             if let _ = snapshot.value as? NSNull {
                 self.like.image = UIImage(named: "empty-heart")
@@ -77,18 +80,18 @@ class PostCell: UITableViewCell {
     
     func likeTapped(sender: UITapGestureRecognizer) {
         
-        likeREF.observeSingleEvent(of: .value, with: { (snapshot) in
+        likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             //if null
             if let _ = snapshot.value as? NSNull {
                 self.like.image = UIImage(named: "filled-heart")
                 self.post.adjLikes(addLike: true)
-                self.likeREF.setValue(true)
+                self.likeRef.setValue(true)
                 
                 
             } else {
                 self.like.image = UIImage(named: "empty-heart")
                 self.post.adjLikes(addLike: false)
-                self.likeREF.removeValue()
+                self.likeRef.removeValue()
                 
             }
         })
