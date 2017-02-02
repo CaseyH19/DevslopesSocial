@@ -170,7 +170,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         firebasePost.setValue(post)
         
         caption.text = ""
-        caption.placeholderText = "Enter a Caption..."
+        //caption.placeholderText = "Enter a Caption..."
         imageSelected = false
         addImg.image = UIImage(named: "add-image")
         

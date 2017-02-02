@@ -417,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91E0D08742A595D445E6FE33 /* Pods-DevslopesSocial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevslopesSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0FA2F04E5A9DD635A228B6E /* Pods-DevslopesSocial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevslopesSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

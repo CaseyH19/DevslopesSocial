@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //for facebook login
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        
-        
         return true
     }
 
