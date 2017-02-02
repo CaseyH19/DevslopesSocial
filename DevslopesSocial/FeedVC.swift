@@ -17,6 +17,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     @IBOutlet weak var caption: FancyField!
+    
     var imageSelected = false
     
     var posts = [Post]()
@@ -145,7 +146,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                     print("KC: Loaded image to Firebase Storage")
                     
                     let downloadUrl = metadata?.downloadURL()?.absoluteString
-                    
+                    if let url = downloadUrl {
+                        self.postToFirebase(imgURL: url)
+                    }
                 }
                 
             })
@@ -153,6 +156,26 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
     
+    
+    func postToFirebase(imgURL: String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": caption.text! as AnyObject,
+            "imageurl": imgURL as AnyObject,
+            "likes": 0 as AnyObject
+        ]
+        
+        
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        caption.text = ""
+        caption.placeholderText = "Enter a Caption..."
+        imageSelected = false
+        addImg.image = UIImage(named: "add-image")
+        
+        tableview.reloadData()
+    }
     
 
 }
