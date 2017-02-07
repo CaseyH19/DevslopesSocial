@@ -18,6 +18,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     @IBOutlet weak var caption: FancyField!
     
+    
+    
     var imageSelected = false
     
     var posts = [Post]()

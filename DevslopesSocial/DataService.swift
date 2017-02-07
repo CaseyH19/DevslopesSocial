@@ -28,7 +28,7 @@ class DataService {
     
     //Storage References
     private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
-    //private var _REF_USER_IMAGES = STORAGE_BASE.child("user-pics")
+    private var _REF_USER_IMAGES = STORAGE_BASE.child("profile-pics")
     
     
     var REF_BASE: FIRDatabaseReference {
@@ -55,11 +55,11 @@ class DataService {
         return _REF_POST_IMAGES
     }
     
-    /*
+    
     var REF_USER_IMAGES: FIRStorageReference {
         return _REF_USER_IMAGES
     }
-    */    
+ 
  
     
     //make sure to differential between db user and normal user
