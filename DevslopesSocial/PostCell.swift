@@ -36,6 +36,8 @@ class PostCell: UITableViewCell {
 
     //= nil gives default value of nil
     func configureCell(post: Post, img: UIImage? = nil) {
+        //var profIMG: UIImage!
+        
         self.post = post
         likeRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
@@ -50,10 +52,34 @@ class PostCell: UITableViewCell {
                 
                 print("KC: Username for post is: \(username)")
                 self.userNameLbl.text = username
+                
+                if let profurl = value["profURL"] as? String {
+                
+                    if let img = FeedVC.imageCache.object(forKey: profurl as NSString) {
+                        print("KC: Loaded profile image from cache")
+                        self.profileImg.image = img
+                    } else {
+                        let ref = FIRStorage.storage().reference(forURL: profurl)
+                        ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                            if error != nil {
+                                print("KC: Unable to download profile image for FIRStorage")
+                            } else {
+                                print("KC: Profile Image downloaded from FIRStorage")
+                                if let imgData = data {
+                                    if let img = UIImage(data: imgData) {
+                                        self.profileImg.image = img
+                                        FeedVC.imageCache.setObject(img, forKey: profurl as NSString)
+                                    }
+                                }
+                            }
+                            
+                        })
+                    }
+                }
             }
         })
-        //self.userNameLbl.text = post.uid
         
+    
         //if the image is already stored in the cache
         if img != nil {
             self.postImg.image = img

@@ -662,6 +662,7 @@
                         <outlet property="nameLbl" destination="waN-DQ-ASD" id="8ZP-jW-5a9"/>
                         <outlet property="originLbl" destination="X1S-aa-3Xs" id="WXA-2x-yxM"/>
                         <outlet property="profilePic" destination="A8x-M3-cxg" id="TxB-2P-pLl"/>
+                        <outlet property="tableview" destination="gj0-7b-ML8" id="AyC-Tu-Vlq"/>
                         <outlet property="usernameLbl" destination="8ds-Zm-CMv" id="zO8-aw-TZq"/>
                     </connections>
                 </viewController>

@@ -10,7 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mainNameLbl: UILabel!
     
@@ -26,11 +26,18 @@ class ProfileVC: UIViewController {
     
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var tableview: UITableView!
+    
     var userDataRef: FIRDatabaseReference!
+    
+    var posts = [Post]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.delegate = self
+        tableview.dataSource = self
+        
         userDataRef = DataService.ds.REF_USER_CURRENT.child("info")
         //print("KC: \(userDataRef)")
         userDataRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -54,6 +61,20 @@ class ProfileVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
    
-   
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return posts.count
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return PostCell()
+        
+    }
+    
 
 }

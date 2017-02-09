@@ -125,6 +125,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
     
     @IBAction func postBtnTapped(_ sender: Any) {
+        caption.endEditing(true)
         guard let caption = caption.text, caption != ""  else {
             print("KC: Caption must be entered")
             return
@@ -172,6 +173,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
         
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        
         firebasePost.setValue(post)
         
         caption.text = ""
