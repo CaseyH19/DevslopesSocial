@@ -264,9 +264,9 @@
                                                                                 <constraint firstAttribute="width" constant="60" id="qCF-VW-rIx"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonkeyJelly97" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0C-bN-nYj">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonkeyJelly97" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="q0C-bN-nYj">
                                                                             <rect key="frame" x="70" y="0.0" width="187" height="60"/>
-                                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
                                                                             <color key="textColor" red="1" green="0.23921568630000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -372,7 +372,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="c1h-S1-t8E">
                     <connections>
-                        <action selector="addImgPressed:" destination="9Pg-Tl-EzT" id="08Q-qd-Qgp"/>
+                        <action selector="addImgPressed:" destination="9Pg-Tl-EzT" id="EEd-fv-qBJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="n3v-dj-NSW">

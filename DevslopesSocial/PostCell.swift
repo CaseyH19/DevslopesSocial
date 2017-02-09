@@ -42,6 +42,18 @@ class PostCell: UITableViewCell {
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes)"
         
+        let userRef = DataService.ds.REF_USERS.child(post.uid).child("info")
+        userRef.observe(.value, with: { (snap) in
+            if let value = snap.value as? Dictionary<String, AnyObject> {
+                //print("\(value)")
+                let username = value["username"] as! String
+                
+                print("KC: Username for post is: \(username)")
+                self.userNameLbl.text = username
+            }
+        })
+        //self.userNameLbl.text = post.uid
+        
         //if the image is already stored in the cache
         if img != nil {
             self.postImg.image = img

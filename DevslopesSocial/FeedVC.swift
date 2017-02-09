@@ -122,6 +122,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         
     }
     
+  
     
     @IBAction func postBtnTapped(_ sender: Any) {
         guard let caption = caption.text, caption != ""  else {
@@ -160,10 +161,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     
     func postToFirebase(imgURL: String) {
+        let uid = KeychainWrapper.standard.string(forKey: KEY_UID)
         let post: Dictionary<String, AnyObject> = [
             "caption": caption.text! as AnyObject,
             "imageurl": imgURL as AnyObject,
-            "likes": 0 as AnyObject
+            "likes": 0 as AnyObject,
+            "uid": uid as AnyObject
         ]
         
         
