@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B7E95D95455FA14CC19DBBB /* Pods_DevslopesSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE38017498D4346913554A95 /* Pods_DevslopesSocial.framework */; };
+		F104786B1E4D6A1900A5D786 /* UserPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F104786A1E4D6A1900A5D786 /* UserPostCell.swift */; };
+		F104786D1E4FD2A800A5D786 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F104786C1E4FD2A800A5D786 /* EditVC.swift */; };
 		F12D3F591E36AFCF0011A1E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D3F581E36AFCF0011A1E4 /* AppDelegate.swift */; };
 		F12D3F5B1E36AFCF0011A1E4 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D3F5A1E36AFCF0011A1E4 /* SignInVC.swift */; };
 		F12D3F5E1E36AFCF0011A1E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12D3F5C1E36AFCF0011A1E4 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		91E0D08742A595D445E6FE33 /* Pods-DevslopesSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevslopesSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevslopesSocial/Pods-DevslopesSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		AE38017498D4346913554A95 /* Pods_DevslopesSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevslopesSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FA2F04E5A9DD635A228B6E /* Pods-DevslopesSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevslopesSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevslopesSocial/Pods-DevslopesSocial.release.xcconfig"; sourceTree = "<group>"; };
+		F104786A1E4D6A1900A5D786 /* UserPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostCell.swift; sourceTree = "<group>"; };
+		F104786C1E4FD2A800A5D786 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		F12D3F551E36AFCF0011A1E4 /* DevslopesSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevslopesSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12D3F581E36AFCF0011A1E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F12D3F5A1E36AFCF0011A1E4 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				F1B7AA231E3720CB0000AFD1 /* FancyBtn.swift */,
 				F14ED3B41E3FCAAC00756311 /* CircleView.swift */,
 				F14ED3B61E3FD77900756311 /* PostCell.swift */,
+				F104786A1E4D6A1900A5D786 /* UserPostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				F12E9CC61E39C0F400C71A7D /* FeedVC.swift */,
 				F12D3F5A1E36AFCF0011A1E4 /* SignInVC.swift */,
 				F196EFE11E49650100774428 /* ProfileVC.swift */,
+				F104786C1E4FD2A800A5D786 /* EditVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				F14ED3B51E3FCAAC00756311 /* CircleView.swift in Sources */,
 				F1B7AA221E371F760000AFD1 /* FancyField.swift in Sources */,
+				F104786B1E4D6A1900A5D786 /* UserPostCell.swift in Sources */,
 				F12D3F5B1E36AFCF0011A1E4 /* SignInVC.swift in Sources */,
 				F14ED3BC1E40456A00756311 /* Post.swift in Sources */,
 				F1B7AA201E371DF80000AFD1 /* RoundBtn.swift in Sources */,
@@ -297,6 +304,7 @@
 				F14ED3BA1E3FEB9400756311 /* DataService.swift in Sources */,
 				F12E9CC71E39C0F400C71A7D /* FeedVC.swift in Sources */,
 				F196EFE21E49650100774428 /* ProfileVC.swift in Sources */,
+				F104786D1E4FD2A800A5D786 /* EditVC.swift in Sources */,
 				F1B7AA1B1E371BAD0000AFD1 /* FancyView.swift in Sources */,
 				F1B7AA1E1E371C500000AFD1 /* Constants.swift in Sources */,
 				F1B7AA241E3720CB0000AFD1 /* FancyBtn.swift in Sources */,

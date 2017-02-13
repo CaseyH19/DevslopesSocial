@@ -19,6 +19,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var caption: FancyField!
     
     
+    @IBOutlet weak var profImg: CircleView!
     
     var imageSelected = false
     
@@ -35,6 +36,40 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+        
+        let userRef = DataService.ds.REF_USER_CURRENT.child("info")
+        
+        userRef.observeSingleEvent(of: .value, with: { (snap) in
+            if let value = snap.value as? Dictionary<String, AnyObject> {
+                //print("\(value)")
+
+                if let pURL = value["profURL"] as? String {
+                    
+                    if let img = FeedVC.imageCache.object(forKey: pURL as NSString) {
+                        print("KC: Loaded profile image from cache")
+                        self.profImg.image = img
+                    } else {
+                        let ref = FIRStorage.storage().reference(forURL: pURL)
+                        ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                            if error != nil {
+                                print("KC: Unable to download profile image for FIRStorage")
+                            } else {
+                                print("KC: Profile Image downloaded from FIRStorage")
+                                if let imgData = data {
+                                    if let img = UIImage(data: imgData) {
+                                        self.profImg.image = img
+                                        FeedVC.imageCache.setObject(img, forKey: pURL as NSString)
+                                    }
+                                }
+                            }
+                            
+                        })
+                    }
+                }
+            }
+            
+            
+        })
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             //looks for any changes in database and instantly updates
