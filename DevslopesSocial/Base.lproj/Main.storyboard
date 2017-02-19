@@ -769,7 +769,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T4h-6s-E7B"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OCF-Jt-8tD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCU-kI-ZIT" customClass="FancyView" customModule="DevslopesSocial" customModuleProvider="target">
@@ -834,20 +834,24 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pai-3R-MwT">
                                         <rect key="frame" x="0.0" y="34" width="280" height="140"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank-profile" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-8Q-Vib" customClass="CircleView" customModule="DevslopesSocial" customModuleProvider="target">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank-profile" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-8Q-Vib" customClass="CircleView" customModule="DevslopesSocial" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="D6V-Ae-OG0"/>
                                                     <constraint firstAttribute="width" constant="140" id="nDF-ch-hcm"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="1xO-vp-Jwm" appends="YES" id="nyW-nX-bug"/>
+                                                </connections>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" text="About Me:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KNk-8k-FGh">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KNk-8k-FGh">
                                                 <rect key="frame" x="155" y="0.0" width="125" height="140"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="VhV-Wg-Fae"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="11"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -871,6 +875,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="photoPressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="xOZ-Nd-Oyc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfy-rS-bSg" customClass="FancyBtn" customModule="DevslopesSocial" customModuleProvider="target">
                                 <rect key="frame" x="254" y="249" width="46" height="30"/>
@@ -883,24 +890,18 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="descPressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="8gi-4m-d7X"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbj-SS-xVa">
-                                <rect key="frame" x="0.0" y="287" width="320" height="463"/>
+                                <rect key="frame" x="0.0" y="287" width="320" height="513"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6H-vv-YYF">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Birthday if Editing..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-Gk-jWW" customClass="FancyField" customModule="DevslopesSocial" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="278" width="280" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="FyA-yQ-8QA"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwn-NO-ntk">
-                                                <rect key="frame" x="20" y="248" width="69.5" height="26"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday: (mm/dd/year)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwn-NO-ntk">
+                                                <rect key="frame" x="20" y="248" width="179.5" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="wJP-Kt-PIC"/>
                                                 </constraints>
@@ -919,6 +920,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="locPressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="fUx-kP-oGF"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location if Editing..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N07-GT-Jm8" customClass="FancyField" customModule="DevslopesSocial" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="198" width="280" height="30"/>
@@ -949,6 +953,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="namePressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="tdm-yW-1DK"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username if Editing..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qk-HI-ofo" customClass="FancyField" customModule="DevslopesSocial" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="118" width="280" height="30"/>
@@ -988,6 +995,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userPressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="nnr-i6-giI"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0w-9q-aZq">
                                                 <rect key="frame" x="20" y="8" width="51.5" height="26"/>
@@ -1009,12 +1019,37 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="bdayPressed:" destination="zOf-ph-hi9" eventType="touchUpInside" id="3Xn-8q-KjW"/>
+                                                </connections>
+                                            </button>
+                                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yu-SV-Pz3">
+                                                <rect key="frame" x="0.0" y="348" width="320" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="m6Y-Pi-9mS"/>
+                                                </constraints>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQR-g0-p6w" customClass="FancyBtn" customModule="DevslopesSocial" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="278" width="280" height="30"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="8c5-aY-RLa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                <state key="normal" title=" Select Birthday">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectBday:" destination="zOf-ph-hi9" eventType="touchUpInside" id="GoC-IG-7G3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="VQR-g0-p6w" firstAttribute="trailing" secondItem="N07-GT-Jm8" secondAttribute="trailing" id="0mO-Kp-fSr"/>
+                                            <constraint firstItem="VQR-g0-p6w" firstAttribute="leading" secondItem="N07-GT-Jm8" secondAttribute="leading" id="10T-Mk-jb9"/>
                                             <constraint firstItem="N07-GT-Jm8" firstAttribute="top" secondItem="QEk-Y0-V2b" secondAttribute="bottom" constant="4" id="2Eq-cI-dg1"/>
-                                            <constraint firstItem="uIU-Tr-tMO" firstAttribute="trailing" secondItem="Gpc-Gk-jWW" secondAttribute="trailing" id="3KI-WD-4hb"/>
+                                            <constraint firstItem="7yu-SV-Pz3" firstAttribute="leading" secondItem="l6H-vv-YYF" secondAttribute="leading" id="5M0-gA-DWD"/>
                                             <constraint firstItem="6qk-HI-ofo" firstAttribute="trailing" secondItem="sHM-HB-lHH" secondAttribute="trailing" id="5uL-nF-bXh"/>
                                             <constraint firstItem="sHM-HB-lHH" firstAttribute="top" secondItem="a0w-9q-aZq" secondAttribute="bottom" constant="4" id="8oV-W5-2QN"/>
                                             <constraint firstItem="QEk-Y0-V2b" firstAttribute="leading" secondItem="6qk-HI-ofo" secondAttribute="leading" id="Bh5-fr-MJZ"/>
@@ -1022,21 +1057,22 @@
                                             <constraint firstItem="x75-bx-EbY" firstAttribute="top" secondItem="sHM-HB-lHH" secondAttribute="bottom" constant="2" id="EQn-Wc-9JM"/>
                                             <constraint firstItem="QEk-Y0-V2b" firstAttribute="top" secondItem="6qk-HI-ofo" secondAttribute="bottom" constant="20" id="FUl-vY-evA"/>
                                             <constraint firstItem="6qk-HI-ofo" firstAttribute="leading" secondItem="sHM-HB-lHH" secondAttribute="leading" id="ICX-Sx-Fmd"/>
+                                            <constraint firstItem="7yu-SV-Pz3" firstAttribute="top" secondItem="uIU-Tr-tMO" secondAttribute="bottom" constant="8" id="IFt-Xy-kFG"/>
                                             <constraint firstItem="Bwn-NO-ntk" firstAttribute="top" secondItem="N07-GT-Jm8" secondAttribute="bottom" constant="20" id="IMZ-cr-eVq"/>
                                             <constraint firstItem="yYS-Ik-4g8" firstAttribute="leading" secondItem="sHM-HB-lHH" secondAttribute="leading" id="JTn-sh-SEm"/>
                                             <constraint firstItem="x75-bx-EbY" firstAttribute="trailing" secondItem="sHM-HB-lHH" secondAttribute="trailing" id="RUp-Dk-wiS"/>
                                             <constraint firstItem="yYS-Ik-4g8" firstAttribute="top" secondItem="sHM-HB-lHH" secondAttribute="bottom" constant="20" id="SgR-no-Uxz"/>
+                                            <constraint firstItem="uIU-Tr-tMO" firstAttribute="trailing" secondItem="VQR-g0-p6w" secondAttribute="trailing" id="Teo-rG-AuB"/>
                                             <constraint firstItem="6qk-HI-ofo" firstAttribute="top" secondItem="yYS-Ik-4g8" secondAttribute="bottom" constant="4" id="WEI-ye-PCi"/>
                                             <constraint firstItem="0q5-PP-DUq" firstAttribute="top" secondItem="N07-GT-Jm8" secondAttribute="bottom" constant="2" id="XOc-7K-VXj"/>
-                                            <constraint firstItem="uIU-Tr-tMO" firstAttribute="top" secondItem="Gpc-Gk-jWW" secondAttribute="bottom" constant="2" id="XhS-6W-tYt"/>
                                             <constraint firstItem="a0w-9q-aZq" firstAttribute="top" secondItem="l6H-vv-YYF" secondAttribute="top" constant="8" id="Zn1-XS-6lX"/>
-                                            <constraint firstItem="Gpc-Gk-jWW" firstAttribute="trailing" secondItem="N07-GT-Jm8" secondAttribute="trailing" id="bJQ-wZ-2hc"/>
+                                            <constraint firstItem="uIU-Tr-tMO" firstAttribute="top" secondItem="VQR-g0-p6w" secondAttribute="bottom" constant="2" id="apN-dZ-XNI"/>
                                             <constraint firstItem="Bwn-NO-ntk" firstAttribute="leading" secondItem="N07-GT-Jm8" secondAttribute="leading" id="cGj-7P-l0w"/>
                                             <constraint firstItem="uIM-ru-PWw" firstAttribute="top" secondItem="6qk-HI-ofo" secondAttribute="bottom" constant="2" id="gXQ-L3-Uy6"/>
+                                            <constraint firstAttribute="trailing" secondItem="7yu-SV-Pz3" secondAttribute="trailing" id="hFA-Qp-XYz"/>
                                             <constraint firstItem="N07-GT-Jm8" firstAttribute="trailing" secondItem="6qk-HI-ofo" secondAttribute="trailing" id="j7i-D7-qwH"/>
-                                            <constraint firstItem="Gpc-Gk-jWW" firstAttribute="top" secondItem="Bwn-NO-ntk" secondAttribute="bottom" constant="4" id="lX7-nQ-dWv"/>
-                                            <constraint firstAttribute="height" constant="450" id="pQI-7K-pGU"/>
-                                            <constraint firstItem="Gpc-Gk-jWW" firstAttribute="leading" secondItem="N07-GT-Jm8" secondAttribute="leading" id="rdS-6l-fpS"/>
+                                            <constraint firstAttribute="height" constant="500" id="pQI-7K-pGU"/>
+                                            <constraint firstItem="VQR-g0-p6w" firstAttribute="top" secondItem="Bwn-NO-ntk" secondAttribute="bottom" constant="4" id="tFp-iS-LqT"/>
                                             <constraint firstItem="0q5-PP-DUq" firstAttribute="trailing" secondItem="N07-GT-Jm8" secondAttribute="trailing" id="uK0-Ql-NN9"/>
                                             <constraint firstItem="N07-GT-Jm8" firstAttribute="leading" secondItem="6qk-HI-ofo" secondAttribute="leading" id="w0D-Rb-IIF"/>
                                         </constraints>
@@ -1073,13 +1109,27 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="750"/>
+                    <size key="freeformSize" width="320" height="800"/>
+                    <connections>
+                        <outlet property="bdayBtn" destination="VQR-g0-p6w" id="Cfm-Fn-ZEw"/>
+                        <outlet property="datePicker" destination="7yu-SV-Pz3" id="zdF-aU-1iX"/>
+                        <outlet property="descTxt" destination="KNk-8k-FGh" id="GlI-nE-65B"/>
+                        <outlet property="locationtxt" destination="N07-GT-Jm8" id="2xh-p0-fDu"/>
+                        <outlet property="nametxt" destination="sHM-HB-lHH" id="zbN-vx-MwW"/>
+                        <outlet property="profileImg" destination="fu0-8Q-Vib" id="Qk3-FS-nzm"/>
+                        <outlet property="usernametxt" destination="6qk-HI-ofo" id="ihV-fv-0b5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHf-PJ-r6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="L0e-yp-qk6">
                     <connections>
                         <action selector="backPressed:" destination="zOf-ph-hi9" id="2wm-v2-3tj"/>
                         <segue destination="3u2-QB-hjj" kind="show" identifier="backProf" id="FvP-Pk-6Wm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1xO-vp-Jwm">
+                    <connections>
+                        <action selector="changePicPressed:" destination="zOf-ph-hi9" id="k1a-Xj-7G9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1099,7 +1149,7 @@
         <image name="sign-out" width="92" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QSj-qj-9b8"/>
         <segue reference="FvP-Pk-6Wm"/>
+        <segue reference="OZr-4i-OJe"/>
     </inferredMetricsTieBreakers>
 </document>

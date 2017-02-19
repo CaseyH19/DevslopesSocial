@@ -154,8 +154,8 @@
 		F19C3D151E36B3DA00A4E134 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F12E9CC61E39C0F400C71A7D /* FeedVC.swift */,
 				F12D3F5A1E36AFCF0011A1E4 /* SignInVC.swift */,
+				F12E9CC61E39C0F400C71A7D /* FeedVC.swift */,
 				F196EFE11E49650100774428 /* ProfileVC.swift */,
 				F104786C1E4FD2A800A5D786 /* EditVC.swift */,
 			);

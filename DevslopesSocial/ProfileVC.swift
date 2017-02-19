@@ -37,81 +37,81 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         userDataRef = DataService.ds.REF_USER_CURRENT.child("info")
         //print("KC: \(userDataRef)")
         userDataRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? Dictionary<String, AnyObject>
-            USERNAME = value?["username"] as! String
-            USER = value?["name"] as! String
-            self.usernameLbl.text = USERNAME
-            self.nameLbl.text = USER
-            self.mainNameLbl.text = USERNAME
-            
-            self.birthdayLbl.text = value?["birthday"] as? String
-            self.originLbl.text = value?["origin"] as? String
-            self.descText.text = value?["description"] as? String
-            
-            if let prURL = value?["profURL"] as? String {
+            if let value = snapshot.value as? Dictionary<String, AnyObject> {
+                USERNAME = value["username"] as! String
+                USER = value["name"] as! String
+                self.usernameLbl.text = USERNAME
+                self.nameLbl.text = USER
+                self.mainNameLbl.text = USERNAME
                 
-                if let img = FeedVC.imageCache.object(forKey: prURL as NSString) {
-                    print("KC: Loaded profile image from cache")
-                    self.profilePic.image = img
-                } else {
-                    let ref = FIRStorage.storage().reference(forURL: prURL)
-                    ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
-                        if error != nil {
-                            print("KC: Unable to download profile image for FIRStorage")
-                        } else {
-                            print("KC: Profile Image downloaded from FIRStorage")
-                            if let imgData = data {
-                                if let img = UIImage(data: imgData) {
-                                    self.profilePic.image = img
-                                    FeedVC.imageCache.setObject(img, forKey: prURL as NSString)
+                self.birthdayLbl.text = value["birthday"] as? String
+                self.originLbl.text = value["origin"] as? String
+                self.descText.text = value["description"] as? String
+                
+                if let prURL = value["profURL"] as? String {
+                    
+                    if let img = FeedVC.imageCache.object(forKey: prURL as NSString) {
+                        print("KC: Loaded profile image from cache")
+                        self.profilePic.image = img
+                    } else {
+                        let ref = FIRStorage.storage().reference(forURL: prURL)
+                        ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                            if error != nil {
+                                print("KC: Unable to download profile image for FIRStorage")
+                            } else {
+                                print("KC: Profile Image downloaded from FIRStorage")
+                                if let imgData = data {
+                                    if let img = UIImage(data: imgData) {
+                                        self.profilePic.image = img
+                                        FeedVC.imageCache.setObject(img, forKey: prURL as NSString)
+                                    }
                                 }
                             }
-                        }
-                        
-                    })
+                            
+                        })
+                    }
                 }
             }
-        
         })
         
         let userP = DataService.ds.REF_USER_CURRENT.child("posts")
         userP.observeSingleEvent(of: .value, with: { (snap) in
-            let value = snap.value as? Dictionary<String, AnyObject>
-            //print(value)
-            for post in value! {
-                //print(post.key)
-                self.userpost.append(post.key)
-            }
-            
-            DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snap.value as? Dictionary<String, AnyObject> {
+                //print(value)
+                for post in value {
+                    //print(post.key)
+                    self.userpost.append(post.key)
+                }
                 
-                
-                if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    self.posts = []
-                    for snap in snapshot {
-                        //print("SNAP: \(snap)")
-                        
-                        if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                            let key = snap.key
-                            print("KC: \(key)")
+                DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    
+                    if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                        self.posts = []
+                        for snap in snapshot {
+                            //print("SNAP: \(snap)")
                             
-                            for x in 0..<self.userpost.count {
-                                //print(self.userpost[x])
-                                if self.userpost[x] == key {
-                                    let post = Post(postKey: key, postData: postDict)
-                                    self.posts.append(post)
-                                    print("KC: Found user post")
-                                }
+                            if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                                let key = snap.key
+                                print("KC: \(key)")
                                 
+                                for x in 0..<self.userpost.count {
+                                    //print(self.userpost[x])
+                                    if self.userpost[x] == key {
+                                        let post = Post(postKey: key, postData: postDict)
+                                        self.posts.append(post)
+                                        print("KC: Found user post")
+                                    }
+                                    
+                                }
                             }
                         }
                     }
-                }
-                
-                self.tableview.reloadData()
-                
-            })
-            
+                    
+                    self.tableview.reloadData()
+                    
+                })
+            }
         })
         
         
